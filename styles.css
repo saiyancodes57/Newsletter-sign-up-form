@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Grayscale */
+  --clr-white: #ffffff;
+  --clr-grey: #949494;
+
+  /* Blues */
+  --clr-blue-800: #242742;
+  --clr-blue-700: #36384d;
+
+  /* Primary / Red */
+  --clr-red: #ff6155;
+
+  /* Gradient Colors */
+  --clr-gradient-start: #ff6a3a;
+  --clr-gradient-end: #ff527b;
+
+  /* Gradient Helper (Linear) */
+  --gradient-primary: linear-gradient(
+    90deg,
+    var(--clr-gradient-start),
+    var(--clr-gradient-end)
+  );
+
+  /* Spacing Scale - Based on 16px root */
+  --space-100: 0.5rem; /* 8px */
+  --space-200: 1rem; /* 16px */
+  --space-300: 1.5rem; /* 24px */
+  --space-400: 2rem; /* 32px */
+  --space-500: 2.5rem; /* 40px */
+  --space-600: 3rem; /* 48px */
+  --space-800: 4rem; /* 64px */
+  --space-900: 4.5rem; /* 72px */
+  --space-1300: 6.5rem; /* 104px */
+
+  /* Font weight */
+  --fw-bold: 700;
+}
+
+/* Preset 1 - Large Headings */
+.text-preset-1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: var(--clr-blue-800);
+}
+
+/* Preset 2 - Body Text */
+.text-preset-2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--clr-blue-700);
+}
+
+.text-preset-2-bold {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--clr-white);
+  font-weight: var(--fw-bold);
+}
+
+/* Preset 3 - Small Text/Captions */
+.text-preset-3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.75rem; /* 12px / 16 */
+  font-weight: var(--fw-bold);
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--clr-blue-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--clr-white);
+  max-width: 375px;
+}
+
+.illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  margin: var(--space-500) var(--space-300);
+}
+
+.join {
+  margin: var(--space-300) 0;
+}
+
+li:not(:last-child) {
+  margin-bottom: var(--space-100);
+}
+
+li {
+  list-style-type: none;
+  display: flex;
+}
+
+li::before {
+  content: url(icon-list.svg);
+  margin-right: 1rem;
+}
+
+ul {
+  margin-bottom: 2.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-300);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+
+input,
+button {
+  height: 56px;
+  border-radius: var(--space-100);
+  /* border: none; */
+}
+
+button {
+  background-color: var(--clr-blue-800);
+  border: none;
+}
+
+button:hover {
+  background: var(--gradient-primary);
+  box-shadow: 0 16px 32px rgba(255, 97, 85, 0.5);
+  cursor: pointer;
+}
+
+input {
+  padding: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.label-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error {
+  color: var(--clr-red);
+  border: 2px solid var(--clr-red);
+  background-color: rgb(255, 242, 242);
+}
+
+.error-text {
+  color: var(--clr-red);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 2.5rem;
+    max-width: 608px;
+    margin: 80px;
+    border-radius: 2.25rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .card {
+    display: flex;
+    max-width: 904px;
+    max-height: 641px;
+    flex-direction: row-reverse;
+  }
+
+  section {
+    width: 100%;
+  }
+}
