@@ -4,45 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="index.js" defer></script>
-    <title>Newsletter</title>
+    <script src="index,js" defer></script>
+    <title>Newsletter sign up form</title>
   </head>
   <body>
-    <div class="card">
-      <img
-        class="illustration"
-        src="illustration-sign-up-mobile.svg"
-        alt="Abstract image with a line chart"
-      />
-      <section class="content">
-        <h1 class="title text-preset-1">Stay Updated</h1>
-        <p class="join text-preset-2">
-          Join 60,000+ product managers receiving monthly updates on:
-        </p>
-        <ul class="text-preset-2">
-          <li>Product discovery and building what matters</li>
-          <li>Measuring to ensure updates are a success</li>
-          <li>And much more!</li>
-        </ul>
+    <section class="card">
+      <div class="illustration-container">
+        <picture
+          ><source
+            media="(min-width: 1000px)"
+            srcset="illustration-sign-up-desktop.svg"
+          />
+          <source
+            media="(min-width: 550px)"
+            srcset="illustration-sign-up-tablet.svg"
+          />
+          <img
+            src="illustration-sign-up-mobile.svg"
+            alt="Illustration of a graph"
+            class="illustration"
+          />
+        </picture>
+      </div>
+
+      <div class="left-container">
+        <main>
+          <h1 class="text-preset-1-mobile">Stay Updated!</h1>
+          <p class="text-preset-2-regular">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <ul class="text-preset-2-regular">
+            <li>Product discovery and building what matters</li>
+            <li>Measuring to ensure updates are a success</li>
+            <li>And much more!</li>
+          </ul>
+        </main>
         <form action="#">
-          <div class="form-group">
-            <div class="label-container">
-              <label for="email" class="text-preset-3">Email address</label>
-              <!-- <p class="text-preset-3 error-text">Valid email required</p> -->
-            </div>
+          <div class="label-group">
+            <label for="email" class="text-preset-3">Email address</label>
+          </div>
+          <div class="form-actions">
             <input
               type="email"
-              name="email"
-              id="email"
-              class="text-preset-2 email"
+              class="text-preset-2-regular email"
               placeholder="email@company.com"
             />
+            <button type="submit" class="text-preset-2-bold btn">
+              Subscribe to monthly newsletter
+            </button>
           </div>
-          <button type="submit" class="text-preset-2-bold submit-btn">
-            Subscribe to monthly newsletter
-          </button>
         </form>
-      </section>
-    </div>
+      </div>
+    </section>
   </body>
 </html>

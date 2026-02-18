@@ -9,91 +9,78 @@
 }
 
 :root {
-  /* Grayscale */
-  --clr-white: #ffffff;
-  --clr-grey: #949494;
+  /* Colors */
+  --color-white: #fff;
+  --color-grey: #949494;
+  --color-blue-800: #242742;
+  --color-blue-700: #36384d;
+  --color-red: #ff6155;
 
-  /* Blues */
-  --clr-blue-800: #242742;
-  --clr-blue-700: #36384d;
+  /* Gradient Stops */
+  --color-gradient-start: #ff6a3a;
+  --color-gradient-end: #ff527b;
 
-  /* Primary / Red */
-  --clr-red: #ff6155;
-
-  /* Gradient Colors */
-  --clr-gradient-start: #ff6a3a;
-  --clr-gradient-end: #ff527b;
-
-  /* Gradient Helper (Linear) */
-  --gradient-primary: linear-gradient(
+  /* Gradient Shorthand */
+  --gradient-4: linear-gradient(
     90deg,
-    var(--clr-gradient-start),
-    var(--clr-gradient-end)
+    var(--color-gradient-start),
+    var(--color-gradient-end)
   );
-
-  /* Spacing Scale - Based on 16px root */
-  --space-100: 0.5rem; /* 8px */
-  --space-200: 1rem; /* 16px */
-  --space-300: 1.5rem; /* 24px */
-  --space-400: 2rem; /* 32px */
-  --space-500: 2.5rem; /* 40px */
-  --space-600: 3rem; /* 48px */
-  --space-800: 4rem; /* 64px */
-  --space-900: 4.5rem; /* 72px */
-  --space-1300: 6.5rem; /* 104px */
-
-  /* Font weight */
-  --fw-bold: 700;
 }
 
-/* Preset 1 - Large Headings */
+/* Preset 1 - Desktop (56px) */
 .text-preset-1 {
-  font-family: "Roboto", sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 100%;
-  letter-spacing: 0;
-  color: var(--clr-blue-800);
+  font-weight: 700; /* Roboto Bold */
+  font-size: 3.5rem;
+  line-height: 1; /* 100% */
+  letter-spacing: 0px;
 }
 
-/* Preset 2 - Body Text */
-.text-preset-2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0;
-  color: var(--clr-blue-700);
+/* Preset 1 - Mobile (40px) */
+.text-preset-1-mobile {
+  font-weight: 700; /* Roboto Bold */
+  font-size: clamp(2.5rem, 4vw + 1rem, 3.5rem);
+  line-height: 1; /* 100% */
+  letter-spacing: 0px;
+  color: var(--color-blue-800);
 }
 
+/* Preset 2 - Bold (16px) */
 .text-preset-2-bold {
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0;
-  color: var(--clr-white);
-  font-weight: var(--fw-bold);
+  font-weight: 700; /* Roboto Bold */
+  font-size: 16px;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0px;
 }
 
-/* Preset 3 - Small Text/Captions */
+/* Preset 2 - Regular (16px) */
+.text-preset-2-regular {
+  font-weight: 400; /* Roboto Regular */
+  font-size: 16px;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0px;
+  color: var(--color-blue-800);
+}
+
+/* Preset 3 - Bold (12px) */
 .text-preset-3 {
-  font-family: "Roboto", sans-serif;
-  font-size: 0.75rem; /* 12px / 16 */
-  font-weight: var(--fw-bold);
-  line-height: 1.5;
-  letter-spacing: 0;
+  font-weight: 700; /* Roboto Bold */
+  font-size: 12px;
+  line-height: 1.5; /* 150% */
+  letter-spacing: 0px;
 }
 
 body {
+  font-family: "Roboto", sans-serif; /* base font */
   min-height: 100vh;
-  background-color: var(--clr-blue-700);
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background-color: var(--color-blue-800);
 }
 
 .card {
-  background-color: var(--clr-white);
-  max-width: 375px;
+  background-color: var(--color-white);
 }
 
 .illustration {
@@ -102,21 +89,18 @@ body {
   height: auto;
 }
 
-.content {
-  margin: var(--space-500) var(--space-300);
+main {
+  margin: 2.5rem 1.5rem;
 }
 
-.join {
-  margin: var(--space-300) 0;
-}
-
-li:not(:last-child) {
-  margin-bottom: var(--space-100);
+main > p {
+  margin: 1.5rem 0px;
 }
 
 li {
-  list-style-type: none;
+  list-style: none;
   display: flex;
+  align-items: flex-start;
 }
 
 li::before {
@@ -124,83 +108,96 @@ li::before {
   margin-right: 1rem;
 }
 
-ul {
-  margin-bottom: 2.5rem;
+li:not(:last-child) {
+  margin-bottom: 0.5rem;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-300);
+  margin: 0px 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.form-group {
+.label-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-actions {
   display: flex;
   flex-direction: column;
-  gap: var(--space-100);
+  gap: 1.5rem;
 }
 
 input,
 button {
-  height: 56px;
-  border-radius: var(--space-100);
-  /* border: none; */
-}
-
-button {
-  background-color: var(--clr-blue-800);
-  border: none;
-}
-
-button:hover {
-  background: var(--gradient-primary);
-  box-shadow: 0 16px 32px rgba(255, 97, 85, 0.5);
-  cursor: pointer;
+  height: 3.5rem;
+  border-radius: 0.5rem;
 }
 
 input {
+  border: 1px solid;
   padding: 1rem;
+  color: var(--color-blue-800);
 }
 
-input:focus {
-  outline: none;
+button {
+  background-color: var(--color-blue-800);
+  border: none;
+  color: var(--color-white);
 }
 
-.label-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@media (min-width: 550px) {
+  body {
+    padding: 80px;
+  }
 
-.error {
-  color: var(--clr-red);
-  border: 2px solid var(--clr-red);
-  background-color: rgb(255, 242, 242);
-}
-
-.error-text {
-  color: var(--clr-red);
-}
-
-@media (min-width: 768px) {
   .card {
     padding: 2.5rem;
-    max-width: 608px;
-    margin: 80px;
     border-radius: 2.25rem;
+  }
+
+  .illustration-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .illustration {
+    display: block;
+    width: 104%;
+    margin-left: -2%;
+    margin-top: -2%;
+    margin-bottom: -2%;
   }
 }
 
 @media (min-width: 1000px) {
   .card {
     display: flex;
-    max-width: 904px;
-    max-height: 641px;
+    gap: 4rem;
+    display: flex;
+    padding: 2rem;
     flex-direction: row-reverse;
+    max-width: 904px;
   }
 
-  section {
-    width: 100%;
+  .left-container {
+    flex: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .illustration-container {
+    flex: 1;
+    height: 100%;
+  }
+
+  main,
+  form {
+    margin: 0;
   }
 }
